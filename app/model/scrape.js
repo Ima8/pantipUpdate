@@ -28,6 +28,6 @@ checkComment = function(callback) {
 };
 test = function(){
     return 0;
-}
+};
 module.exports.checkComment  = checkComment;
 module.exports.test  = test;

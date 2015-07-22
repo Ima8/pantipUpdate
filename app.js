@@ -8,6 +8,11 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var config = require("./config");
+var mongoose = require("mongoose");
+
+
+
 var app = express();
 
 // view engine setup
@@ -56,5 +61,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
+//connect mongodb
+mongoose.connect(config.database, function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Connected to the database');
+  }
+});
 
 module.exports = app;
